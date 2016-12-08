@@ -18,14 +18,24 @@ public class XmlValidator {
 
 	/** aktuelle Versionsdatei fuer Ausgabe */
 	public static final String prg_version = "R1V1.1.0-0001";
+	/** Ausgabedateiname fuer logWriter-Methode */
+	public static final String myLOGFile = "XmlValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log";
 	/** FileWrite für Logdatei */
 	public static FileWriter fw = null;
 	/** BufferedWriter für logdatei */
 	public static BufferedWriter bw = null;
 	
+	
+	/** Vordefinierte Ausgabe in Datei (f) via logWriter */
+	static char vFlag = 'f';
+	/** XML-Datei aus Uebergabeparameter 2 */
+	static String myXMLFile = null; 
+	/** XSD-Datei aus Uebergabeparameter 3 */
+	static String myXSDFile = null; 
+	
 	/** 
 	 * Hauptmethode (main) zur Validierung von XML-Dateien via XSD-Datei
-	 * @author Thomas Schicklberger ^
+	 * @author Thomas Schicklberger
 	 * @version 1.0                                         
 	 * @param args Kommandozeile
 	 * @throws SAXParseException wenn XML nicht valide, bzw. XSD nicht gefunden wird
@@ -34,41 +44,16 @@ public class XmlValidator {
 	 * @throws IOException wenn Schreib-/Lesefehler bei Log-, XML-, oder XSD-Datei auftreten
 	 * @return void
 	*/
-	public static void main(String[] args)  throws SAXParseException, SAXException, FileNotFoundException, IOException {
+	public static void main(String[] args)  throws SAXParseException, SAXException, FileNotFoundException, IOException, Exception {
 		
-		/** XML-Datei aus Uebergabeparameter 2 */
-		String myXMLFile = null; 
-		String myXSDFile = null; /** XSD-Datei aus Uebergabeparameter 3 */
-		String myLOGFile = "XmlValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log"; /** LogFile */
-		
-		// Vordefinierte Ausgabe in Datei (f) via LogWriter 
-		char vFlag = 'f'; 
-		
-		// Anzahl und Richtigkeit der Uebergabeparameter pruefen 
-		if (args.length > 2) {
-			
-			vFlag = args[0].charAt(0); // Ausgabeparameter aus Uebergabeparameter zuweisen 
-				
-			switch (vFlag) {
-				case 's': case 'f': case 'b': break;
-				default: 
-					System.out.println ("Fehler im ersten Parameter. Verbose Flag-Wert \"" + vFlag + "\" falsch!\r\n");
-					System.out.println ("Moegliche Verbose Flags: [s|f|b]. \r\n");
-					return;
-			}
-
-			// Eingabe-Dateien aus den Uebergabeparametern zuweisen
-			myXMLFile = args[1];
-			myXSDFile = args[2];
-			
-		} else {
-				System.out.println("Bitte Parameter ueberpruefen! Falsche Anzahl.\r\n"); 
-				return;
-		} // if-else
+		// Uebergabeparameter aus Kommandozeile oder UC4 pruefen
+		if (!checkParams(args)) {
+			throw new Exception ("invalid arguments");
+		}		
 		
 		try {
 
-			/** Log-Ausgabe initialisieren */
+			// Log-Ausgabe initialisieren 
 			fw = new FileWriter(myLOGFile,true);
 			bw = new BufferedWriter(fw);
 
@@ -157,6 +142,13 @@ public class XmlValidator {
 			System.exit(-3);
 		} 
 		
+		catch (Exception e) {
+			e.printStackTrace();
+			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");
+			if (bw != null) { bw.close(); }
+			System.exit(-4);
+		}
+		
 		finally {
 		
 			try {
@@ -165,16 +157,51 @@ public class XmlValidator {
 			
 			catch (IOException e) {
 				e.printStackTrace();
-				System.exit(-4);
+				System.exit(-5);
 			}
 		}
 
 	}
 
+	/**
+	 * Methode zur Ueberpruefung der Uebergabeparameter aus der Kommandozeile
+	 * @author Thomas Schicklberger
+	 * @version 1.0
+	 * @param params Uebergabeparameter aus der Hauptklasse (Kommandozeile)
+	 * @return true wenn alle in Ordnung, false, wenn die Parameter nicht passen
+	 * @throws IOException
+	 */
+	public static boolean checkParams (String[] params) throws IOException {
+		
+
+		if (params.length > 2) {
+			
+			vFlag = params[0].charAt(0); // Ausgabeparameter aus Uebergabeparameter zuweisen 
+				
+			switch (vFlag) {
+				case 's': case 'f': case 'b': break;
+				default: 
+					System.out.println ("Fehler im ersten Parameter. Verbose Flag-Wert \"" + vFlag + "\" falsch!\r\n");
+					System.out.println ("Moegliche Verbose Flags: [s|f|b]. \r\n");
+					return false;
+			}
+
+			// Eingabe-Dateien aus den Uebergabeparametern zuweisen
+			myXMLFile = params[1];
+			myXSDFile = params[2];
+			
+		} else {
+				System.out.println("Bitte Parameter ueberpruefen! Falsche Anzahl.\r\n"); 
+				return false;
+		} // if-else
+		
+		return true;
+	}
 
 	/**
 	 * Methode zur Ausgabe einer Textzeile entweder in eine Logdatei, am Schirm, oder beides
 	 * @author Thomas Schicklberger
+	 * @version 2.0
 	 * @param pFlag Ausgabeflag: s Schirm, b Beides, f Datei
 	 * @param pBW AusgabeObjekt
 	 * @param pLine Ausgabezeile
@@ -204,7 +231,7 @@ public class XmlValidator {
 		
 		catch (IOException e) {
 			e.printStackTrace();
-			System.exit(-5);
+			System.exit(-6);
 		}
 	}
 
