@@ -1,7 +1,7 @@
-package pkXMLValidator;
+package pkXmlValidator;
 
 //------------------------------------------------------------------------------
-//Name:    XMLValidator
+//Name:    XmlValidator
 //------------------------------------------------------------------------------
 //Purpose: Ein XML gegen ein beliebiges XSD validieren 
 //Author:  SCHICKLBERGER, Thomas (ST)
@@ -13,7 +13,7 @@ package pkXMLValidator;
 //20161207.0600 - TS - Einbau Logging, Umbau auf Uebergabeparameter
 //
 //------------------------------------------------------------------------------
-//Aufruf: java -jar XMLValidator.jar <verbose flag> <xml file> <xsd file>
+//Aufruf: java -jar XmlValidator.jar <verbose flag> <xml file> <xsd file>
 //    
 //        verbose flag: [s|f|b] 
 //                  s ... Ausgabe auf Schirm
@@ -35,7 +35,9 @@ import javax.xml.validation.*;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-public class XMLValidator {
+
+/** Einfach mal einen JavaDoc-Aenderung, oder? */
+public class XmlValidator {
 
 	// current release/version info for output
 	public static final String prg_version = "R1V1.1.0-0001";
@@ -49,7 +51,7 @@ public class XMLValidator {
 		String myXMLFile = null; // XML-Datei aus Uebergabeparameter 2
 		String myXSDFile = null; // XSD-Datei aus Uebergabeparameter 3
 		
-		String myLOGFile = "XMLValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log";
+		String myLOGFile = "XmlValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log";
 		
 		char vFlag = 'f'; // Standardmaessig alles in Log-File ausgeben
 		
@@ -83,7 +85,7 @@ public class XMLValidator {
 
 			writeLine (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");		
 
-			writeLine (vFlag,bw,"XMLValidator " + prg_version);
+			writeLine (vFlag,bw,"XmlValidator " + prg_version);
 			writeLine (vFlag,bw,"(c) 2016 Drei Banken EDV GmbH");
 			writeLine (vFlag,bw,"Autor: AELZV/SCHICKLBERGER, Thomas\r\n");
 		
@@ -211,5 +213,5 @@ public class XMLValidator {
 		}
 	}
 
-} // XMLValidator
+} // XmlValidator
 
