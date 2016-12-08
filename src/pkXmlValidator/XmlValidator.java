@@ -1,29 +1,5 @@
-package pkXmlValidator;
 
-//------------------------------------------------------------------------------
-//Name:    XmlValidator
-//------------------------------------------------------------------------------
-//Purpose: Ein XML gegen ein beliebiges XSD validieren 
-//Author:  SCHICKLBERGER, Thomas (ST)
-//Version: R1V1.0.0-0001
-//------------------------------------------------------------------------------
-//History:
-//20161201.2300 - TS - Ersterstellung
-//20161202.1400 - TS - erste funktionierende Version
-//20161207.0600 - TS - Einbau Logging, Umbau auf Uebergabeparameter
-//
-//------------------------------------------------------------------------------
-//Aufruf: java -jar XmlValidator.jar <verbose flag> <xml file> <xsd file>
-//    
-//        verbose flag: [s|f|b] 
-//                  s ... Ausgabe auf Schirm
-//                  f ... Ausgabe in Logdatei
-//                  b ... Ausgabe in Logdatei und Schirm
-//
-//------------------------------------------------------------------------------
-//Aufgaben:
-// - Bei verbose flag s wird trotzdem eine Leerdatei erstellt
-//------------------------------------------------------------------------------
+package pkXmlValidator; 
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -35,34 +11,42 @@ import javax.xml.validation.*;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
-
-/** xmlValidator Klasse*/
-
+/** 
+ * Klasse zur Validierung von XML-Dateien gegen XSD-Dateien                  
+ */
 public class XmlValidator {
 
-	/** current release/version info for output */
+	/** aktuelle Versionsdatei fuer Ausgabe */
 	public static final String prg_version = "R1V1.1.0-0001";
 
-	// Logfile deklarieren
+	/** FileWrite für Logdatei */
 	public static FileWriter fw = null;
+	/** BufferedWriter für logdatei */
 	public static BufferedWriter bw = null;
 	
-	/** @author Thomas Schicklberger */
-	/** @params empty */
-	
-	public static void main(String[] args)  throws SAXException, FileNotFoundException, IOException {
+	/** 
+	 * Hauptmethode (main) zur Validierung von XML-Dateien via XSD-Datei
+	 * @author Thomas Schicklberger                                          
+	 * @param args Kommandozeile
+	 * @throws SAXParseException wenn XML nicht valide, bzw. XSD nicht gefunden wird
+	 * @throws SAXException wenn anderer XML-Fehler vorliegt
+	 * @throws FileNotFoundException wenn die angegebene XML-Datei nicht gefunden wird
+	 * @throws IOException wenn Schreib-/Lesefehler bei Log-, XML-, oder XSD-Datei auftreten
+	 * @return void
+	*/
+	public static void main(String[] args)  throws SAXParseException, SAXException, FileNotFoundException, IOException {
 		
-		String myXMLFile = null; // XML-Datei aus Uebergabeparameter 2
-		String myXSDFile = null; // XSD-Datei aus Uebergabeparameter 3
+		String myXMLFile = null; /** XML-Datei aus Uebergabeparameter 2 */
+		String myXSDFile = null; /** XSD-Datei aus Uebergabeparameter 3 */
+		String myLOGFile = "XmlValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log"; /** LogFile */
 		
-		String myLOGFile = "XmlValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log";
+		/** Vordefinierte Ausgabe in Datei (f) via LogWriter */
+		char vFlag = 'f'; 
 		
-		char vFlag = 'f'; // Standardmaessig alles in Log-File ausgeben
-		
-		// Anzahl und Richtigkeit der Uebergabeparameter pruefen 
+		/** Anzahl und Richtigkeit der Uebergabeparameter pruefen */
 		if (args.length > 2) {
 			
-			vFlag = args[0].charAt(0);
+			vFlag = args[0].charAt(0); /** Ausgabeparameter aus Uebergabeparameter zuweisen */
 				
 			switch (vFlag) {
 				case 's': case 'f': case 'b': break;
