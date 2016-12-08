@@ -20,14 +20,14 @@ public class XmlValidator {
 	public static final String prg_version = "R1V1.1.0-0001";
 	/** Ausgabedateiname fuer logWriter-Methode */
 	public static final String myLOGFile = "XmlValidator." + new SimpleDateFormat("yyyy_MM").format(new Date()) + ".log";
-	/** FileWrite für Logdatei */
+	
+	/** FileWriter fuer logWriter-Methode */
 	public static FileWriter fw = null;
-	/** BufferedWriter für logdatei */
+	/** BufferedWriter fuer logWriter-Methode */
 	public static BufferedWriter bw = null;
 	
-	
-	/** Vordefinierte Ausgabe in Datei (f) via logWriter */
-	static char vFlag = 'f';
+	/** Vordefinierte Ausgabe in Datei (f) via logWriter-Methode */
+	public static char vFlag = 'f';
 	/** XML-Datei aus Uebergabeparameter 2 */
 	static String myXMLFile = null; 
 	/** XSD-Datei aus Uebergabeparameter 3 */
@@ -37,7 +37,7 @@ public class XmlValidator {
 	 * Hauptmethode (main) zur Validierung von XML-Dateien via XSD-Datei
 	 * @author Thomas Schicklberger
 	 * @version 1.0                                         
-	 * @param args Kommandozeile
+	 * @param args Kommandozeile: <Verbose-Flag [f|s|b|o]> <XML-Datei> <XSD-Datei>
 	 * @throws SAXParseException wenn XML nicht valide, bzw. XSD nicht gefunden wird
 	 * @throws SAXException wenn anderer XML-Fehler vorliegt
 	 * @throws FileNotFoundException wenn die angegebene XML-Datei nicht gefunden wird
@@ -46,29 +46,29 @@ public class XmlValidator {
 	*/
 	public static void main(String[] args)  throws SAXParseException, SAXException, FileNotFoundException, IOException, Exception {
 		
+		
+		logWrite ("------------------------------------------------------------------------------------------------------------------------");		
+
+		logWrite ("XmlValidator " + prg_version);
+		logWrite ("(c) 2016 Drei Banken EDV GmbH");
+		logWrite ("Autor: AELZV/SCHICKLBERGER, Thomas\r\n");
+	
+		logWrite ("Ausgefuehrt am: " + new SimpleDateFormat("dd.MM.yyyy - HH:mm:ss").format(new Date()));
+		logWrite ("Ausgefuehrt in: " + System.getProperty("user.dir") + "\r\n");
+		logWrite ("LOG-Datei: " + new File (myLOGFile).getAbsolutePath());
+		
+		logWrite ("Parameter pruefen ...");
 		// Uebergabeparameter aus Kommandozeile oder UC4 pruefen
 		if (!checkParams(args)) {
 			throw new Exception ("invalid arguments");
 		}		
 		
-		try {
-
-			// Log-Ausgabe initialisieren 
-			fw = new FileWriter(myLOGFile,true);
-			bw = new BufferedWriter(fw);
-
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");		
-
-			logWrite (vFlag,bw,"XmlValidator " + prg_version);
-			logWrite (vFlag,bw,"(c) 2016 Drei Banken EDV GmbH");
-			logWrite (vFlag,bw,"Autor: AELZV/SCHICKLBERGER, Thomas\r\n");
+		logWrite ("XML-Datei: " + myXMLFile);
+		logWrite ("XSD-Datei: " + myXSDFile + "\r\n");
 		
-			logWrite (vFlag,bw,"Ausgefuehrt am: " + new SimpleDateFormat("dd.MM.yyyy - HH:mm:ss").format(new Date()));
-			logWrite (vFlag,bw,"Ausgefuehrt in: " + System.getProperty("user.dir") + "\r\n");
-			logWrite (vFlag,bw,"LOG-Datei: " + new File (myLOGFile).getAbsolutePath());
-			logWrite (vFlag,bw,"XML-Datei: " + myXMLFile);
-			logWrite (vFlag,bw,"XSD-Datei: " + myXSDFile + "\r\n");
-			logWrite (vFlag,bw,"Dateien prüfen ...");
+		try {
+			
+			logWrite ("Dateien prüfen ...");
 
 			if (!new File (myXMLFile).exists()) {
 				throw new FileNotFoundException(myXMLFile); 
@@ -78,25 +78,25 @@ public class XmlValidator {
 				}
 			}
 
-			logWrite (vFlag,bw,"Schema vorbereiten ...");
+			logWrite ("Schema vorbereiten ...");
 			SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 
-			logWrite (vFlag,bw,"Schema laden ...");
+			logWrite ("Schema laden ...");
 			File schemaFile = new File(myXSDFile);
 			Schema schema = factory.newSchema(schemaFile);
 
-			logWrite (vFlag,bw,"XML-Validator instanzieren ...");
+			logWrite ("XML-Validator instanzieren ...");
 			Validator validator = schema.newValidator();
 			
 			//System.out.println("Validator Class: " + validator.
 
 					
-			logWrite (vFlag,bw,"XML validieren ...");
+			logWrite ("XML validieren ...");
 			validator.validate(new StreamSource(myXMLFile));
 		    
-			logWrite (vFlag,bw,"Ergebnis: XML-Datei ist valide!");
-			logWrite (vFlag,bw,"Programm beendet.");
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");		
+			logWrite ("Ergebnis: XML-Datei ist valide!");
+			logWrite ("Programm beendet.");
+			logWrite ("------------------------------------------------------------------------------------------------------------------------");		
 
 			bw.close();
 			System.exit(0);
@@ -104,13 +104,13 @@ public class XmlValidator {
 		} 
 
 		catch (SAXParseException e) {
-			logWrite (vFlag,bw,"(e) Ergebnis: XML-Datei ist nicht valide!");
+			logWrite ("(e) Ergebnis: XML-Datei ist nicht valide!");
 			
-			logWrite (vFlag,bw,"(e) Zeile: " + e.getLineNumber());
-			logWrite (vFlag,bw,"(e) Spalte: " + e.getColumnNumber());
+			logWrite ("(e) Zeile: " + e.getLineNumber());
+			logWrite ("(e) Spalte: " + e.getColumnNumber());
 			
-			logWrite (vFlag,bw,"(e) Grund: " + e.getMessage().substring(e.getMessage().indexOf(":") + 2));
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");
+			logWrite ("(e) Grund: " + e.getMessage().substring(e.getMessage().indexOf(":") + 2));
+			logWrite ("------------------------------------------------------------------------------------------------------------------------");
 
 			if (bw != null) { bw.close(); }
 			System.exit(-1);
@@ -119,17 +119,17 @@ public class XmlValidator {
 		
 		catch (SAXException e) {
 			// XML-Instanz ist nicht valide
-			logWrite (vFlag,bw,"(e) SAX Fehler!");
-			logWrite (vFlag,bw,"(e) Grund: " + e.getMessage());
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");
+			logWrite ("(e) SAX Fehler!");
+			logWrite ("(e) Grund: " + e.getMessage());
+			logWrite ("------------------------------------------------------------------------------------------------------------------------");
 
 			if (bw != null) { bw.close(); }
 			System.exit(-1);
 		} 
 		
 		catch (FileNotFoundException e) {
-			logWrite (vFlag,bw,"Datei nicht gefunden " + e.getMessage().split(" ")[0]);
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");
+			logWrite ("Datei nicht gefunden " + e.getMessage().split(" ")[0]);
+			logWrite ("------------------------------------------------------------------------------------------------------------------------");
 		
 			if (bw != null) { bw.close(); }
 			System.exit(-2);
@@ -137,14 +137,14 @@ public class XmlValidator {
 		
 		catch (IOException e) {
 			e.printStackTrace();
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");
+			logWrite ("------------------------------------------------------------------------------------------------------------------------");
 			if (bw != null) { bw.close(); }
 			System.exit(-3);
 		} 
 		
 		catch (Exception e) {
 			e.printStackTrace();
-			logWrite (vFlag,bw,"------------------------------------------------------------------------------------------------------------------------");
+			logWrite ("------------------------------------------------------------------------------------------------------------------------");
 			if (bw != null) { bw.close(); }
 			System.exit(-4);
 		}
@@ -179,7 +179,7 @@ public class XmlValidator {
 			vFlag = params[0].charAt(0); // Ausgabeparameter aus Uebergabeparameter zuweisen 
 				
 			switch (vFlag) {
-				case 's': case 'f': case 'b': break;
+				case 's': case 'f': case 'b': case 'o': break;
 				default: 
 					System.out.println ("Fehler im ersten Parameter. Verbose Flag-Wert \"" + vFlag + "\" falsch!\r\n");
 					System.out.println ("Moegliche Verbose Flags: [s|f|b]. \r\n");
@@ -199,29 +199,33 @@ public class XmlValidator {
 	}
 
 	/**
-	 * Methode zur Ausgabe einer Textzeile entweder in eine Logdatei, am Schirm, oder beides
+	 * Methode zur Ausgabe einer Textzeile entweder in eine Logdatei, am Schirm, beides, oder unterdrueckt.
+	 * Dazu muss vFlag mit entweder 'f', 's', 'b', oder 'o' belegt werden
 	 * @author Thomas Schicklberger
-	 * @version 2.0
-	 * @param pFlag Ausgabeflag: s Schirm, b Beides, f Datei
-	 * @param pBW AusgabeObjekt
+	 * @version 2.1
 	 * @param pLine Ausgabezeile
 	 * @throws IOException
 	 */
-	public static void logWrite(char pFlag, BufferedWriter pBW, String pLine) throws IOException {
-		
+	public static void logWrite(String pLine) throws IOException {
+			
+		fw = new FileWriter(myLOGFile,true);
+		bw = new BufferedWriter(fw);
+
 		try {
-			switch (pFlag) {
+			switch (vFlag) {
 				case 's': 
 					System.out.println (pLine);
 					break;
 			
 				case 'b': 
 					System.out.println (pLine);
-					pBW.write(pLine + "\r\n");
+					bw.write(pLine + "\r\n");
 					break;
 		
 				case 'f': 
-					pBW.write(pLine + "\r\n");
+					bw.write(pLine + "\r\n");
+					break;
+				case 'o': // Ausgabe unterdruecken
 					break;
 				
 				default:
