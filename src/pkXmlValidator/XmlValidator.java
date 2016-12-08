@@ -36,7 +36,8 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 
-/** Einfach mal einen JavaDoc-Aenderung, oder? */
+/** xmlValidator Klasse*/
+/
 public class XmlValidator {
 
 	// current release/version info for output
@@ -45,6 +46,8 @@ public class XmlValidator {
 	// Logfile deklarieren
 	public static FileWriter fw = null;
 	public static BufferedWriter bw = null;
+	
+	/** @author Thomas Schicklberger */
 	
 	public static void main(String[] args)  throws SAXException, FileNotFoundException, IOException {
 		
