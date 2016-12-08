@@ -37,10 +37,10 @@ import org.xml.sax.SAXParseException;
 
 
 /** xmlValidator Klasse*/
-/
+
 public class XmlValidator {
 
-	// current release/version info for output
+	/** current release/version info for output */
 	public static final String prg_version = "R1V1.1.0-0001";
 
 	// Logfile deklarieren
@@ -48,6 +48,7 @@ public class XmlValidator {
 	public static BufferedWriter bw = null;
 	
 	/** @author Thomas Schicklberger */
+	/** @params empty */
 	
 	public static void main(String[] args)  throws SAXException, FileNotFoundException, IOException {
 		
@@ -82,7 +83,7 @@ public class XmlValidator {
 		
 		try {
 
-			// Log-Ausgabe initialisieren
+			/** Log-Ausgabe initialisieren */
 			fw = new FileWriter(myLOGFile,true);
 			bw = new BufferedWriter(fw);
 
