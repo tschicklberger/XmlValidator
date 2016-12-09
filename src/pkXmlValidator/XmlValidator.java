@@ -81,7 +81,6 @@ public class XmlValidator {
 				}
 			}
 
-			lw.writeLog ("Schema vorbereiten ...");
 			SchemaFactory factory = SchemaFactory.newInstance("http://www.w3.org/2001/XMLSchema");
 
 			lw.writeLog ("Schema laden ...");
@@ -90,10 +89,10 @@ public class XmlValidator {
 
 			lw.writeLog ("XML-Validator instanzieren ...");
 			Validator validator = schema.newValidator();
-			
+		
 			lw.writeLog ("XML validieren ...");
 			validator.validate(new StreamSource(validatorXmlFile));
-		    
+			
 			lw.writeLog ("Ergebnis: XML-Datei ist valide!");
 			lw.writeLog ("Programm beendet.");
 			lw.writeLog (lw.SDASH120);		
@@ -193,5 +192,6 @@ public class XmlValidator {
 		
 		return true;
 	}
+
 } // XmlValidator
 

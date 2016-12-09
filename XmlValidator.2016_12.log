@@ -320,3 +320,177 @@ XML validieren ...
 (e) Spalte: 14
 (e) Grund: Ungültiger Content wurde beginnend mit Element 'sw3:GrpHdrX' gefunden. '{"urn:iso:std:iso:20022:tech:xsd:svv:pacs.003.002.04SVV":GrpHdr}' wird erwartet.
 ------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 09.12.2016 - 23:58:31
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 09.12.2016 - 23:59:01
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:00:58
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:01:26
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:02:10
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:03:29
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:03:56
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:05:16
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:05:46
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Beginne Validierung ...
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:06:36
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Schema laden ...
+XML-Validator instanzieren ...
+XML validieren ...
+(e) Ergebnis: XML-Datei ist nicht valide!
+(e) Zeile: 13
+(e) Spalte: 14
+(e) Grund: Ungültiger Content wurde beginnend mit Element 'sw3:GrpHdrX' gefunden. '{"urn:iso:std:iso:20022:tech:xsd:svv:pacs.003.002.04SVV":GrpHdr}' wird erwartet.
+------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------
+XmlValidator R1V1.2.0-0001
+(c) 2016 Drei Banken EDV GmbH
+Autor: AELZV/SCHICKLBERGER, Thomas
+
+Ausgefuehrt am: 10.12.2016 - 00:07:54
+Ausgefuehrt in: C:\Users\Thomas Schicklberger\git\XmlValidator
+
+LOG-Datei: XmlValidator.2016_12.log
+XML-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\IDF.xml
+XSD-Datei: C:\Users\Thomas Schicklberger\Dropbox\3BEG\PRJ\SCHECKDE\Scripte\XMLValidator\XSD\IDF.xsd
+
+Dateien prüfen ...
+Schema laden ...
+XML-Validator instanzieren ...
+XML validieren ...
+(e) Ergebnis: XML-Datei ist nicht valide!
+(e) Zeile: 13
+(e) Spalte: 14
+(e) Grund: Ungültiger Content wurde beginnend mit Element 'sw3:GrpHdrX' gefunden. '{"urn:iso:std:iso:20022:tech:xsd:svv:pacs.003.002.04SVV":GrpHdr}' wird erwartet.
+------------------------------------------------------------------------------------------------------------------------
