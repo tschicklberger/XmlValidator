@@ -10,7 +10,7 @@ import java.io.PrintWriter;
  * Jede Zeile wird sofort in die Ausgabedatei via flush()-Methode geschrieben.
  * <br><br>
  * Um den LogWriter verwenden zu koennen, muss zuerst die Klasse initialisiert werden.
- * Das geschieht mit der Methode {@link #init(VerboseFlags, String) init()}.
+ * Das geschieht mit der Methode {@link #init(verboseFlagSet, String) init()}.
  * <br><br>
  * Um die Klasse ordnungsgemaess zu beenden gibt es eine Implementierung der Methode {@link #close() close()}
  * Diese schreibt etwaige gepufferte Texte in die Logdatei und schliesst sie daraufhin.
@@ -22,9 +22,9 @@ import java.io.PrintWriter;
 public class LogWriter implements AutoCloseable {
 	
 	/** Konstante Zeichenkette mit 80 Bindestrichen */
-	public static final String SDASH80  = "--------------------------------------------------------------------------------";
+	public final String SDASH80  = "--------------------------------------------------------------------------------";
 	/** Konstante Zeichenkette mit 120 Bindestrichen */
-	public static final String SDASH120 = "------------------------------------------------------------------------------------------------------------------------";
+	public final String SDASH120 = "------------------------------------------------------------------------------------------------------------------------";
 	
 	/** Auflistung moeglicher Ausgabekanaele fuer LogWriter */
 	public enum verboseFlagSet {
@@ -86,8 +86,8 @@ public class LogWriter implements AutoCloseable {
 	 * 
 	 * @author Thomas Schicklberger
 	 * @version 2.0
-	 * @param VerboseFlag wo soll die Ausgabe erfolgen
-	 * @param LogFileName Name der Ausgabedatei
+	 * @param verboseFlag wo soll die Ausgabe erfolgen
+	 * @param logFileName Name der Ausgabedatei
 	 * @return LogWriter das Methodenobjekt selbst
 	 * @throws IOException wenn Datei nicht erstellt, oder geoeffnet werden kann.
 	 */
@@ -137,7 +137,7 @@ public class LogWriter implements AutoCloseable {
 	
     /**
      * Die Methode writeLog() ist die eigentliche Funktion zur Ausgabe von Zeichenketten, in
-     * der in der {@link #init(VerboseFlags, String) init()}-Methode deklarierten Ausgabevariante.
+     * der in der {@link #init(verboseFlagSet, String) init()}-Methode deklarierten Ausgabevariante.
      * 
      * @author Thomas Schicklberger
      * @version 2.0
