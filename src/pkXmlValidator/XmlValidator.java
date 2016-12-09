@@ -45,8 +45,7 @@ public class XmlValidator {
 	 * @return void
 	*/
 	public static void main(String[] args)  throws SAXParseException, SAXException, FileNotFoundException, IOException, Exception {
-		
-		
+			
 		logWrite ("------------------------------------------------------------------------------------------------------------------------");		
 
 		logWrite ("XmlValidator " + prg_version);
