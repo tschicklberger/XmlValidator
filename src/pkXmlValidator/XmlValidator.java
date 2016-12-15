@@ -1,5 +1,5 @@
 package pkXmlValidator; 
-
+// Validator Kapsel
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import javax.xml.validation.Validator;
 
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-
+// new branch 
 /** 
  * Klasse zur Validierung von XML-Dateien gegen XSD-Dateien                  
  */
