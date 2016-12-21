@@ -14,7 +14,7 @@ import javax.xml.validation.Validator;
 
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
-// new branch 
+
 /** 
  * Klasse zur Validierung von XML-Dateien gegen XSD-Dateien                  
  */
@@ -51,7 +51,7 @@ public class XmlValidator {
 		if (!checkParams(args)) {
 			lw.close();
 			throw new Exception ("invalid arguments");
-		}
+		}	
 		
 		// LogWriter initialisieren
 		LogWriter lw = new LogWriter();
